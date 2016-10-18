@@ -1,0 +1,1 @@
+In this folder there contains the Android application and some java codes to set up a server and connecting to the Androir application. Please use the right default to successfully run these things.

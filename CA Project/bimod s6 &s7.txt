@@ -1,0 +1,10 @@
+﻿The only difference between these three strategy is the bit number of counter. Bimod has a 2-bit counter, strategy 6 has a 1-bit counter and strategy 7 has a 3-bit counter. In most cases, bimod strategy always perform the best accuracy. For strategy 6, only the most recent branch ‘outcome’ is recorded. So when the benchmark has a lot of loops but ‘run’ each loops very few times, this strategy will preform much worse than bimod which has a 2-bit counter. However, it doesn't means that the large counter we have, the better performance we will get. This is attributed to the fact that the "inertia" can be built up with a larger counter in which history in the too-distant past is used. For the benchmarks which have a lot of loops that always calls the value of one variable which history is recorded in the counter but too-distant, strategy 7 will performs worse than bimod. 
+
+for(i=0;i<1000;i++)
+{	for(j=0;j<100;j++)
+	{	
+		code;
+	}
+}
+
+For instance, if the benchmark has a lot of loops like this. Assuming that the initial prediction is not taken, bimod strategy which has a 2-bit counter will only miss one time. However, strategy 6 will miss every time when entry the inner loop; In this way bimod strategy will have 1000 less misses. 

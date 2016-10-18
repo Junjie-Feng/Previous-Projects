@@ -1,0 +1,4 @@
+GOOG    5
+HAL     30
+FNM     62
+XRX     13

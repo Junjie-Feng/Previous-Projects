@@ -1,0 +1,7 @@
+Our group includes three team members, Lulu Jiang, Ruotian Zhang and Junjie Feng.
+
+For strategy 6 and strategy 7 from the paper ¡°A Study of Branch Predictionb Strategies¡± by James Smith, we achieved these two method by changing some code in the 'bpred.c' file which is in the 'simplesim-3.0' folder.
+
+If you want to test our code, please replace the default file with our code, and do "make" in the terminal once agian. 
+
+Thanks for you time.

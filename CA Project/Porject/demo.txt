@@ -1,0 +1,21 @@
+2. Setup the environment
+i.
+export IDIR=/any/directory/you/choose/ (for example, mine is /home/tangkk/Build/simplescalar)
+export HOST=i686-pc-linux
+export TARGET=sslittle-na-sstrix
+Assuming your host is also little endian. It could be ssbig-na-sstrix. If this is the case, all the following appeared "sslittle-na-sstrix" should be replaced by "ssbig-na-sstrix".
+
+
+3. Unpack the Simpletools-2v0
+(Basically this package contains the sources of a gcc(GNU C Compiler) and a glibc ported to simplescalar architecture. And according to [7], building the glibc is non-trivial, thus this Simpletools package contains pre-compiled libraries in both ssbig-na-sstrix/ and sslittle-na-sstrix/ folder)
+
+after this step you got ssbig-na-sstrix and sslittle-na-sstrix folders under the $IDIR, and they both contains an include folder and a lib folder)
+
+
+wiki explain the endianness:
+
+Endianness refers to the order of the bytes, comprising a digital word, in computer memory. It also describes the order of byte transmission over a digital link. Words may be represented in big-endian or little-endian format. With big-endian the most-significant byte of a word is stored at a particular memory address and the subsequent bytes are stored in the following higher memory addresses, the least significant byte thus being stored at the highest memory address. Little-endian format reverses the order and stores the least-significant byte at the lower memory address with the most significant byte being stored at the highest memory address.[1]
+
+Both forms of endianness are widely used in digital electronics. The choice of endianness for a new design is often arbitrary, but later technology revisions and updates perpetuate the existing endianness and many other design attributes to maintain backward compatibility. As examples, the IBM z/Architecture mainframes use big-endian while the Intel x86 processors use little-endian. The designers chose endianness in the 1960s and 1970s respectively.
+
+Big-endian is the most common format in data networking; fields in the protocols of the Internet protocol suite, such as IPv4, IPv6, TCP, and UDP, are transmitted in big-endian order. For this reason, big-endian byte order is also referred to as network byte order. Little-endian storage is popular for microprocessors, in part due to significant influence on microprocessor designs by Intel Corporation. 

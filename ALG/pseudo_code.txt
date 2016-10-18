@@ -1,0 +1,49 @@
+Set up the Database ()
+{
+For each candidates
+	Create tables for JSONData (candidates’ name)
+	Create tables for saving the frequent words (candidates’ name)
+	Create tables for saving the polarity of tweets (candidates’ name)
+}
+
+Collect Tweets ()
+{	
+Get authentication form Twitter (consumer key, consumer secret, access token, access secret)
+
+Collect tweets filter by the (key words = the name of candidates)
+
+Store the raw tweets in the database ()
+}
+
+Data Analysis_1 ()
+{
+For each candidates
+	raw_data = Get raw JSONdata from Database ()
+
+	data = Parse the raw data (raw_data)
+
+	data.Polarity = Naive_Bayesian (data)
+
+	Store the weight of polarity in Database (data.Polarity)
+}
+
+Data Analysis_2 ()
+{
+For each candidates
+	data = Get raw data from Database ()
+
+	Frequent_Word []= Word_Clouds (data)
+
+	Frequent_Word [] = Delete the commonly used verbs and pronouns (data. Frequent_Word [])
+
+	Store the in Database (Frequent_Word [])
+}
+
+User Interface ()
+{
+Queries for information ()
+
+Search the analysis result in Database ()
+
+Display the static as a graph/chart ()
+}

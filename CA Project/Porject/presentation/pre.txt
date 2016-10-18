@@ -1,0 +1,57 @@
+3
+bimod: use a 2-bit predictor for each branch instruction. this 2 bit strategy is just like the basic 2-bit predictor we learned in the class.
+
+4
+because more branches' outcome is taken rather than not taken. so as teh gragh shows, the frequency of misprediction of taken strategy is lower than the nottaken strategy. 
+
+
+ In simplescalar, it will automatically use the low-order bits from the branch address to index the entry. we decided the branch history table has 2048 entries which means uses 11 bit of branch address to index.
+
+
+5
+Hash the branch instruction address to m bits and use this index to address a random access memory containing the outcome of the most recent branch instruction indexing the same location. Predict that the branch outcome will be the same.
+
+6
+
+
+
+7
+Exploiting Spatial correlation
+Exploiting Temporal correlation
+
+Correlating predictor:
+ Multiple 2-bit predictors for each branch
+ One for each possible combination of outcomes of preceding n branches
+Store the preceding branch history in the shift register, and one bit for each branch. If it is taken , stores 1, otherwise, stores 0.
+this   
+
+Local predictor:
+ Multiple 2-bit predictors for each branch
+ One for each possible combination of outcomes for the last n
+occurrences of this branch
+
+8
+
+
+
+
+
+
+9
+Using global history global history shift register which contains last 2 branch outcomes. this 2 bit index to a entry of branch history table.
+
+!!!!!!!!update: The global history register
+is updated with the results from all the branches.
+Since the global history register is used by all branch
+predictions, not only the history of a branch but also
+the history of other branches inuence the prediction
+of the branch.
+
+each address that contains a branch instruction
+could contain its own second-level per-address
+pattern table. 
+
+
+
+15
+comb update:!!!!!!!!!!The idea is to store the success of the predictors. An evaluation can only be done if the predictors suggest different branch directions, though. If they predict the same, no change is made. The selection is made by choosing predictor 1 if the selector entry has a value of 2 or 3, and predictor 2 is taken of values 0 or 1. 

@@ -1,0 +1,21 @@
+For each benchmark, we used different strategies to obtain the better performance.
+
+Benchmark apsi.ss:
+Strategy 'GAp':	./sim-outorder -bpred:2lev 1 4096 3 0 -bpred 2lev ./spec95-little/apsi.ss
+Strategy 'combination':	./sim-outorder -bpred:comb 256 -bpred:2lev 1 4096 3 0 -bpred:bimod 2048 -bpred comb ./spec95-little/apsi.ss
+
+Benchmark ijpeg.ss
+Strategy 2lev:	./sim-outorder -bpred:2lev 8192 8192 2 0 -bpred 2lev ./spec95-little/ijpeg.ss
+Strategy 'combination':	./sim-outorder -bpred:comb 128 -bpred:2lev 1 1024 8 0 -bpred:bimod 2048 -bpred comb ./spec95-little/ijpeg.ss
+
+Benchmark perl.ss
+Strategy combination:	./sim-outorder -bpred:2lev 1 1024 8 0 -bpred:bimod 4096 -bpred:comb 2048 -bpred comb ./spec95-little/perl.ss primes.pl primes.in
+
+Benchmark tomcatv.ss
+Strategy combination:	./sim-outorder -bpred:2lev 1 1024 8 0 -bpred:bimod 2048 -bpred:comb 1024 -bpred comb ./spec95-little/tomcatv.ss
+
+Benchmark cc1.ss
+Strategy combination:	./sim-outorder -bpred:2lev 1 1024 8 0 -bpred:bimod 2048 -bpred:comb 2048 -bpred comb ./spec95-little/cc1.ss -O2 test.i -o ~/test.s
+
+Benchmark vortex.ss
+Strategy combination:	./sim-outorder -bpred:2lev 1 1024 8 0 -bpred:bimod 2048 -bpred:comb 4096 -bpred comb ./spec95-little/vortex.ss
